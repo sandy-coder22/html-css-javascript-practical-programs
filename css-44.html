@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 44 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:1000px;margin:70px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:48px}.desc{color:#999}
+.pills{display:flex;gap:10px;flex-wrap:wrap;background:#151515;padding:20px;border:1px solid #2a2a2a;border-radius:16px}
+.pill{padding:10px 20px;border-radius:30px;color:#aaa;border:1px solid #2a2a2a}
+.pill:hover,.active{background:#ff6422;color:white;border-color:#ff6422}
+</style>
+</head>
+<body>
+
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+
+<main>
+<span class="tag">CSS PRACTICAL 44</span>
+<h1>Pill Navigation</h1>
+<p class="desc">Rounded navigation links for a modern SaaS interface.</p>
+
+<div class="pills">
+<div class="pill active">All</div>
+<div class="pill">Projects</div>
+<div class="pill">Analytics</div>
+<div class="pill">Team</div>
+<div class="pill">Reports</div>
+</div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS 01 | DevCore</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        .internal-card {
+            background: #151515;
+            border: 1px solid #ff6422;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .internal-card h2 {
+            color: #ff6422;
+            margin-bottom: 10px;
+        }
+
+        .internal-card p {
+            color: #bbbbbb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            Dev<span>Core.</span>
+        </div>
+
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">HTML</a>
+            <a href="#">CSS</a>
+            <a href="#">JavaScript</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- Inline CSS -->
+        <section class="hero">
+
+            <h1 style="color:#ff6422; font-size:50px;">
+                CSS Styling Methods
+            </h1>
+
+            <p style="color:#999999; font-size:18px;">
+                This heading and paragraph use Inline CSS.
+            </p>
+
+        </section>
+
+
+        <!-- Internal CSS -->
+        <section class="internal-card">
+
+            <h2>
+                Internal CSS
+            </h2>
+
+            <p>
+                This card is styled using CSS written inside
+                the &lt;style&gt; tag in the HTML document.
+            </p>
+
+        </section>
+
+
+        <!-- External CSS -->
+        <section class="external-card">
+
+            <h2>
+                External CSS
+            </h2>
+
+            <p>
+                This card is styled using an external
+                CSS file named style.css.
+            </p>
+
+        </section>
+
+
+        <!-- Explanation -->
+        <section class="info">
+
+            <h2>
+                Three CSS Methods
+            </h2>
+
+            <div class="method-grid">
+
+                <div class="method">
+                    <h3>01</h3>
+                    <h4>Inline CSS</h4>
+                    <p>
+                        CSS is written directly inside
+                        the HTML element using the
+                        <b>style</b> attribute.
+                    </p>
+                </div>
+
+                <div class="method">
+                    <h3>02</h3>
+                    <h4>Internal CSS</h4>
+                    <p>
+                        CSS is written inside a
+                        <b>&lt;style&gt;</b> element
+                        in the HTML document.
+                    </p>
+                </div>
+
+                <div class="method">
+                    <h3>03</h3>
+                    <h4>External CSS</h4>
+                    <p>
+                        CSS is stored in a separate
+                        <b>.css</b> file and connected
+                        using the <b>&lt;link&gt;</b> tag.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        CSS Practical 01 — <span>DevCore.</span>
+    </footer>
+
+</body>
+</html>

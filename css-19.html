@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS 3D Transformations | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            height: 70px;
+            background: #111111;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        nav a {
+            color: #999999;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff6422;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        .description {
+            color: #999999;
+        }
+
+        .card {
+            margin-top: 40px;
+            background: #151515;
+            border: 1px solid #2a2a2a;
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .scene {
+            width: 220px;
+            height: 220px;
+            margin: 50px auto;
+            perspective: 600px;
+        }
+
+        .cube {
+            width: 180px;
+            height: 180px;
+            margin: auto;
+            background: #ff6422;
+            color: #0b0b0b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+
+            transform-style: preserve-3d;
+            transform: rotateX(25deg) rotateY(35deg);
+        }
+
+        .cube:hover {
+            transform: rotateX(180deg) rotateY(180deg);
+            transition: transform 1s;
+        }
+
+        .note {
+            color: #999999;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Dev<span>Core.</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="tag">&gt; CSS PRACTICAL 19</div>
+
+    <h1>CSS 3D Transformations</h1>
+
+    <p class="description">
+        3D transformations and perspective effects.
+    </p>
+
+    <div class="card">
+
+        <p class="note">
+            Hover over the 3D object.
+        </p>
+
+        <div class="scene">
+
+            <div class="cube">
+                3D EFFECT
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

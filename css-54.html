@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 54 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:900px;margin:70px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:48px}.desc{color:#999}
+.notification{background:#151515;border:1px solid #2a2a2a;border-radius:16px;padding:20px}
+.item{display:flex;gap:15px;padding:18px;border-bottom:1px solid #292929}
+.item:last-child{border:0}
+.icon{color:#ff6422;font-size:22px}
+.time{margin-left:auto;color:#666;font-size:12px}
+</style>
+</head>
+<body>
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+<main>
+<span class="tag">CSS PRACTICAL 54</span>
+<h1>Notifications</h1>
+<p class="desc">Notification card component.</p>
+
+<div class="notification">
+<div class="item">
+<div class="icon">●</div>
+<div><strong>New project created</strong><p>Analytics Dashboard was created.</p></div>
+<div class="time">2m</div>
+</div>
+
+<div class="item">
+<div class="icon">●</div>
+<div><strong>Payment received</strong><p>Your monthly payment was processed.</p></div>
+<div class="time">1h</div>
+</div>
+
+<div class="item">
+<div class="icon">●</div>
+<div><strong>Team update</strong><p>A new member joined your team.</p></div>
+<div class="time">3h</div>
+</div>
+</div>
+</main>
+</body>
+</html>

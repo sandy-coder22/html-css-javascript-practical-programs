@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 53 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:1100px;margin:60px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:45px}.desc{color:#999}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.card{background:#151515;border:1px solid #2a2a2a;border-radius:16px;padding:25px}
+.chart{height:220px;display:flex;align-items:end;gap:12px}
+.bar{flex:1;background:#ff6422;border-radius:6px 6px 0 0}
+.stats{font-size:30px;font-weight:bold;color:#ff6422}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+<main>
+<span class="tag">CSS PRACTICAL 53</span>
+<h1>Dashboard Card</h1>
+<p class="desc">Analytics dashboard card layout.</p>
+
+<div class="grid">
+<div class="card">
+<h2>Revenue Overview</h2>
+<div class="chart">
+<div class="bar" style="height:35%"></div>
+<div class="bar" style="height:55%"></div>
+<div class="bar" style="height:45%"></div>
+<div class="bar" style="height:75%"></div>
+<div class="bar" style="height:62%"></div>
+<div class="bar" style="height:90%"></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Total Revenue</h2>
+<div class="stats">₹84.2K</div>
+<p>+18.4% this month</p>
+</div>
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Navigation | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background: #111111;
+            border-bottom: 1px solid #2a2a2a;
+            padding: 18px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        .links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .links a {
+            color: #999999;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            color: #ff6422;
+        }
+
+        .menu {
+            display: none;
+            color: #ff6422;
+            font-size: 25px;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 30px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        .description {
+            color: #999999;
+        }
+
+        @media (max-width: 700px) {
+
+            .links {
+                display: none;
+            }
+
+            .menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        Dev<span>Core.</span>
+    </div>
+
+    <div class="links">
+        <a href="#">Home</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Analytics</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <div class="menu">
+        ☰
+    </div>
+
+</nav>
+
+<div class="content">
+
+    <div class="tag">&gt; CSS PRACTICAL 24</div>
+
+    <h1>Responsive SaaS Navigation</h1>
+
+    <p class="description">
+        Resize the browser to see the responsive navigation.
+    </p>
+
+</div>
+
+</body>
+</html>

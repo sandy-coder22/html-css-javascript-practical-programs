@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 50 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:1100px;margin:70px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:48px}.desc{color:#999}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#151515;border:1px solid #2a2a2a;border-radius:18px;padding:30px}
+.featured{border-color:#ff6422;transform:translateY(-8px)}
+.plan{color:#ff6422;font-size:13px;font-weight:bold}
+.price{font-size:40px;font-weight:bold;margin:15px 0}
+ul{padding-left:20px;color:#aaa;line-height:2}
+button{width:100%;padding:12px;background:#ff6422;border:0;color:#fff;border-radius:8px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.featured{transform:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+
+<main>
+<span class="tag">CSS PRACTICAL 50</span>
+<h1>Pricing Cards</h1>
+<p class="desc">SaaS pricing plan component.</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="plan">STARTER</div>
+<div class="price">₹0</div>
+<p>For personal projects.</p>
+<ul>
+<li>3 Projects</li>
+<li>Basic Analytics</li>
+<li>Community Support</li>
+</ul>
+<button>Get Started</button>
+</div>
+
+<div class="card featured">
+<div class="plan">PRO</div>
+<div class="price">₹999</div>
+<p>For growing teams.</p>
+<ul>
+<li>Unlimited Projects</li>
+<li>Advanced Analytics</li>
+<li>AI Tools</li>
+</ul>
+<button>Choose Pro</button>
+</div>
+
+<div class="card">
+<div class="plan">TEAM</div>
+<div class="price">₹2499</div>
+<p>For larger organizations.</p>
+<ul>
+<li>Team Management</li>
+<li>Advanced Reports</li>
+<li>Priority Support</li>
+</ul>
+<button>Choose Team</button>
+</div>
+
+</div>
+</main>
+</body>
+</html>

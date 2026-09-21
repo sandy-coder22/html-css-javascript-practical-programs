@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Sidebar | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: #111111;
+            border-right: 1px solid #2a2a2a;
+            padding: 30px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            color: #ff6422;
+            font-size: 20px;
+        }
+
+        a {
+            display: block;
+            color: #999999;
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid #222222;
+        }
+
+        a:hover {
+            color: #ff6422;
+        }
+
+        .content {
+            margin-left: 280px;
+            padding: 70px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        p {
+            color: #999999;
+        }
+
+        @media (max-width: 600px) {
+
+            .sidebar {
+                width: 85%;
+            }
+
+            .content {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        Dev<span>Core.</span>
+    </div>
+
+    <div class="close">×</div>
+
+    <a href="#">Dashboard</a>
+    <a href="#">Projects</a>
+    <a href="#">Analytics</a>
+    <a href="#">Team</a>
+    <a href="#">Settings</a>
+
+</div>
+
+<div class="content">
+
+    <div class="tag">&gt; CSS PRACTICAL 25</div>
+
+    <h1>Mobile Sidebar Drawer</h1>
+
+    <p>
+        A mobile-friendly sidebar navigation drawer.
+    </p>
+
+</div>
+
+</body>
+</html>

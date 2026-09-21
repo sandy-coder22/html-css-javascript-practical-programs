@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 45 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:1000px;margin:70px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:48px}.desc{color:#999}
+.pagination{display:flex;gap:8px;justify-content:center;background:#151515;border:1px solid #2a2a2a;padding:25px;border-radius:15px}
+.page{padding:10px 15px;border:1px solid #2a2a2a;border-radius:8px;color:#999}
+.page:hover,.active{background:#ff6422;color:#fff;border-color:#ff6422}
+</style>
+</head>
+<body>
+
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+
+<main>
+<span class="tag">CSS PRACTICAL 45</span>
+<h1>Pagination</h1>
+<p class="desc">SaaS pagination component.</p>
+
+<div class="pagination">
+<div class="page">‹</div>
+<div class="page active">1</div>
+<div class="page">2</div>
+<div class="page">3</div>
+<div class="page">4</div>
+<div class="page">5</div>
+<div class="page">›</div>
+</div>
+
+</main>
+</body>
+</html>

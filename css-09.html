@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Text Properties | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            height: 70px;
+            background: #111111;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        nav a {
+            color: #999999;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff6422;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin: 15px 0;
+        }
+
+        .description {
+            color: #999999;
+            font-size: 18px;
+        }
+
+        .card {
+            margin-top: 40px;
+            background: #151515;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 35px;
+        }
+
+        .text-demo {
+            background: #0b0b0b;
+            border-left: 3px solid #ff6422;
+            padding: 25px;
+        }
+
+        .align {
+            text-align: center;
+        }
+
+        .decoration {
+            text-decoration: underline;
+        }
+
+        .transform {
+            text-transform: uppercase;
+        }
+
+        .indent {
+            text-indent: 50px;
+        }
+
+        .spacing {
+            letter-spacing: 3px;
+            word-spacing: 8px;
+        }
+
+        .line {
+            line-height: 2;
+        }
+
+        .orange {
+            color: #ff6422;
+        }
+
+        .label {
+            color: #999999;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Dev<span>Core.</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="tag">&gt; CSS PRACTICAL 09</div>
+
+    <h1>CSS Text Properties</h1>
+
+    <p class="description">
+        Alignment, decoration, transformation, indentation,
+        spacing and line-height.
+    </p>
+
+    <div class="card">
+
+        <div class="text-demo">
+
+            <p class="label">Text Alignment</p>
+            <p class="align orange">This text is centered.</p>
+
+            <p class="label">Text Decoration</p>
+            <p class="decoration orange">This text is underlined.</p>
+
+            <p class="label">Text Transformation</p>
+            <p class="transform orange">this text becomes uppercase.</p>
+
+            <p class="label">Text Indentation</p>
+            <p class="indent">
+                This paragraph demonstrates text indentation.
+                The first line starts with an indentation.
+            </p>
+
+            <p class="label">Text Spacing</p>
+            <p class="spacing orange">
+                CSS text spacing example
+            </p>
+
+            <p class="label">Line Height</p>
+            <p class="line">
+                CSS allows us to control the space between
+                lines of text using the line-height property.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

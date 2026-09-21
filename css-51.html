@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 51 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:1100px;margin:70px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:48px}.desc{color:#999}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#151515;border:1px solid #2a2a2a;border-radius:16px;padding:25px}
+.label{color:#999;font-size:13px}
+.value{font-size:32px;font-weight:bold;margin:10px 0}
+.change{color:#ff6422}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+<main>
+<span class="tag">CSS PRACTICAL 51</span>
+<h1>SaaS Statistics</h1>
+<p class="desc">Statistics cards for a SaaS dashboard.</p>
+
+<div class="grid">
+<div class="card"><div class="label">Total Users</div><div class="value">12,480</div><div class="change">+12.4%</div></div>
+<div class="card"><div class="label">Projects</div><div class="value">1,284</div><div class="change">+8.2%</div></div>
+<div class="card"><div class="label">Revenue</div><div class="value">₹84K</div><div class="change">+18.6%</div></div>
+<div class="card"><div class="label">Sessions</div><div class="value">48.2K</div><div class="change">+6.8%</div></div>
+</div>
+</main>
+</body>
+</html>

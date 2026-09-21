@@ -1,0 +1,6915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DevCore - CSS Practical Programs</title>
+
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 88% 5%,
+                    rgba(255, 100, 34, 0.10),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 5% 70%,
+                    rgba(255, 100, 34, 0.05),
+                    transparent 25%
+                ),
+                #0b0b0b;
+
+            color: #ffffff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            width: min(1400px, calc(100% - 48px));
+
+            height: 74px;
+
+            margin: 0 auto;
+
+            padding: 0 28px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: #121212;
+
+            border: 1px solid #292929;
+
+            border-top: none;
+        }
+
+
+        .logo {
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 27px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+
+        .logo span {
+            color: #ff6422;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 32px;
+        }
+
+
+        .nav-links a {
+
+            color: #999999;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+
+        .nav-links .active {
+            color: #ffffff;
+        }
+
+
+        .explore {
+
+            background: #ff6422;
+
+            color: #ffffff !important;
+
+            padding: 11px 21px;
+
+            border-radius: 6px;
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        .page-header {
+
+            width: min(1400px, calc(100% - 48px));
+
+            margin: auto;
+
+            padding: 105px 35px 70px;
+        }
+
+
+        .eyebrow {
+
+            color: #ff6422;
+
+            font-family: "Courier New", monospace;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .eyebrow::before {
+
+            content: "> ";
+
+            color: #ff6422;
+        }
+
+
+        .page-header h1 {
+
+            margin: 0;
+
+            font-size: clamp(50px, 7vw, 82px);
+
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+        }
+
+
+        .page-header h1 span {
+            color: #ff6422;
+        }
+
+
+        .page-header p {
+
+            max-width: 780px;
+
+            margin-top: 28px;
+
+            color: #858585;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           PROGRAM GRID
+        ========================= */
+
+        .container {
+
+            width: min(1460px, calc(100% - 48px));
+
+            margin: auto;
+
+            padding: 0 20px 100px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section {
+
+            grid-column: 1 / -1;
+
+            margin-top: 55px;
+
+            margin-bottom: 2px;
+
+            padding-bottom: 14px;
+
+            color: #ffffff;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            border-bottom: 1px solid #292929;
+        }
+
+
+        .section::before {
+
+            content: "// ";
+
+            color: #ff6422;
+
+            font-family: monospace;
+        }
+
+
+        /* =========================
+           PROGRAM CARD
+        ========================= */
+
+        .program {
+
+            min-height: 270px;
+
+            padding: 34px;
+
+            background: #121212;
+
+            border: 1px solid #2b2b2b;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+
+        /* Orange glow */
+
+        .program::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 270px;
+
+            height: 270px;
+
+            right: -190px;
+
+            top: -90px;
+
+            background:
+                rgba(255, 100, 34, 0.09);
+
+            filter: blur(70px);
+
+            transition: 0.4s ease;
+        }
+
+
+        /* Orange bottom line */
+
+        .program::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background: #ff6422;
+
+            transition: width 0.3s ease;
+        }
+
+
+        /* Hover */
+
+        .program:hover {
+
+            transform: translateY(-4px);
+
+            background: #151515;
+
+            border-color: #444444;
+        }
+
+
+        .program:hover::before {
+            right: -80px;
+        }
+
+
+        .program:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           PROGRAM LINK
+        ========================= */
+
+        .program a {
+
+            display: block;
+
+            height: 100%;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           NUMBER
+        ========================= */
+
+        .number {
+
+            display: block;
+
+            margin-bottom: 28px;
+
+            color: #555555;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .number::before {
+
+            content: "// ";
+
+            color: #555555;
+        }
+
+
+        /* =========================
+           OPEN PROGRAM
+        ========================= */
+
+        .open-program {
+
+            position: absolute;
+
+            left: 34px;
+
+            bottom: 42px;
+
+            z-index: 3;
+
+            color: #ff6422;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+
+        .open-program::after {
+            content: " →";
+        }
+
+
+        .program:hover .open-program {
+
+            transform: translateX(5px);
+
+            color: #ff7943;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+
+            width: min(1400px, calc(100% - 48px));
+
+            margin: auto;
+
+            padding: 30px 35px 45px;
+
+            border-top: 1px solid #292929;
+
+            color: #666666;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .container {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                width: calc(100% - 24px);
+
+                padding: 0 16px;
+            }
+
+
+            .nav-links {
+                gap: 12px;
+            }
+
+
+            .nav-links a:nth-child(1),
+            .nav-links a:nth-child(2),
+            .nav-links a:nth-child(4) {
+
+                display: none;
+            }
+
+
+            .page-header {
+
+                width: calc(100% - 24px);
+
+                padding:
+                    70px
+                    16px
+                    50px;
+            }
+
+
+            .page-header h1 {
+
+                font-size: 52px;
+
+                letter-spacing: -2px;
+            }
+
+
+            .page-header p {
+                font-size: 15px;
+            }
+
+
+            .container {
+
+                width: calc(100% - 24px);
+
+                padding:
+                    0
+                    12px
+                    60px;
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .program {
+
+                min-height: 250px;
+
+                padding: 30px;
+            }
+
+
+            .open-program {
+                left: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Dev<span>Core.</span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../html/index.html">
+                HTML
+            </a>
+
+            <a
+                href="index.html"
+                class="active">
+
+                CSS
+
+            </a>
+
+            <a href="../javascript/index.html">
+                JavaScript
+            </a>
+
+            <a
+                href="../index.html"
+                class="explore">
+
+                Explore
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="page-header">
+
+        <div class="eyebrow">
+            CSS PRACTICAL LAB
+        </div>
+
+
+        <h1>
+
+            Style.<br>
+
+            Build.<br>
+
+            <span>Explore.</span>
+
+        </h1>
+
+
+        <p>
+
+            A practical CSS workspace containing
+            CSS fundamentals, UI components,
+            responsive layouts, analytics,
+            AI/ML interfaces and modern SaaS projects.
+
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         PROGRAMS
+    ========================= -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             CSS FOUNDATION
+        ========================= -->
+
+        <div class="section">
+            CSS Foundation & Core UI
+        </div>
+
+
+        <!-- 01 -->
+
+        <div class="program">
+
+            <a href="css-01.html">
+
+                <span class="number">
+                    01
+                </span>
+
+                Create a webpage using Inline,
+                Internal, and External CSS.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="program">
+
+            <a href="css-02.html">
+
+                <span class="number">
+                    02
+                </span>
+
+                Create a webpage using Universal,
+                Element, Class, ID, Attribute,
+                and Grouping selectors.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="program">
+
+            <a href="css-03.html">
+
+                <span class="number">
+                    03
+                </span>
+
+                Create a webpage using Descendant,
+                Child, Adjacent Sibling, and
+                General Sibling selectors.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="program">
+
+            <a href="css-04.html">
+
+                <span class="number">
+                    04
+                </span>
+
+                Create a webpage using CSS colors
+                for text, backgrounds, borders,
+                and UI elements.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="program">
+
+            <a href="css-05.html">
+
+                <span class="number">
+                    05
+                </span>
+
+                Create a webpage using background
+                images, background colors,
+                background positioning, sizing,
+                repeat, and attachment.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="program">
+
+            <a href="css-06.html">
+
+                <span class="number">
+                    06
+                </span>
+
+                Create a webpage using different
+                CSS border styles, widths, colors,
+                and border-radius properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div class="program">
+
+            <a href="css-07.html">
+
+                <span class="number">
+                    07
+                </span>
+
+                Create a webpage using Linear
+                and Radial CSS gradients.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div class="program">
+
+            <a href="css-08.html">
+
+                <span class="number">
+                    08
+                </span>
+
+                Create a webpage using CSS
+                font-family, font-size, font-weight,
+                font-style, and font-variant properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 09 -->
+
+        <div class="program">
+
+            <a href="css-09.html">
+
+                <span class="number">
+                    09
+                </span>
+
+                Create a webpage using CSS text
+                alignment, decoration, transformation,
+                indentation, spacing, and line-height.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div class="program">
+
+            <a href="css-10.html">
+
+                <span class="number">
+                    10
+                </span>
+
+                Create a webpage using the CSS box
+                model with content, padding,
+                border, and margin.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div class="program">
+
+            <a href="css-11.html">
+
+                <span class="number">
+                    11
+                </span>
+
+                Create a webpage using different
+                width, height, min-width, max-width,
+                min-height, and max-height properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div class="program">
+
+            <a href="css-12.html">
+
+                <span class="number">
+                    12
+                </span>
+
+                Create a webpage using the CSS
+                box-sizing property with content-box
+                and border-box.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 13 -->
+
+        <div class="program">
+
+            <a href="css-13.html">
+
+                <span class="number">
+                    13
+                </span>
+
+                Create a webpage using CSS display
+                properties such as block, inline,
+                inline-block, flex, grid, and none.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 14 -->
+
+        <div class="program">
+
+            <a href="css-14.html">
+
+                <span class="number">
+                    14
+                </span>
+
+                Create a webpage using CSS
+                visibility and opacity properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 15 -->
+
+        <div class="program">
+
+            <a href="css-15.html">
+
+                <span class="number">
+                    15
+                </span>
+
+                Create a webpage using CSS overflow,
+                overflow-x, and overflow-y properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 16 -->
+
+        <div class="program">
+
+            <a href="css-16.html">
+
+                <span class="number">
+                    16
+                </span>
+
+                Create a webpage using border-radius
+                to create rounded cards, circles,
+                pills, and custom shapes.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 17 -->
+
+        <div class="program">
+
+            <a href="css-17.html">
+
+                <span class="number">
+                    17
+                </span>
+
+                Create a webpage using CSS box-shadow
+                and text-shadow properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 18 -->
+
+        <div class="program">
+
+            <a href="css-18.html">
+
+                <span class="number">
+                    18
+                </span>
+
+                Create a webpage using CSS variables
+                and custom properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 19 -->
+
+        <div class="program">
+
+            <a href="css-19.html">
+
+                <span class="number">
+                    19
+                </span>
+
+                Create a webpage using CSS inheritance,
+                specificity, and the cascade.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 20 -->
+
+        <div class="program">
+
+            <a href="css-20.html">
+
+                <span class="number">
+                    20
+                </span>
+
+                Create a webpage using CSS calc(),
+                min(), max(), and clamp() functions.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 21 -->
+
+        <div class="program">
+
+            <a href="css-21.html">
+
+                <span class="number">
+                    21
+                </span>
+
+                Create a webpage using static, relative,
+                absolute, fixed, and sticky positioning.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 22 -->
+
+        <div class="program">
+
+            <a href="css-22.html">
+
+                <span class="number">
+                    22
+                </span>
+
+                Create a webpage using z-index
+                and CSS stacking order.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 23 -->
+
+        <div class="program">
+
+            <a href="css-23.html">
+
+                <span class="number">
+                    23
+                </span>
+
+                Create a webpage using float
+                and clear properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 24 -->
+
+        <div class="program">
+
+            <a href="css-24.html">
+
+                <span class="number">
+                    24
+                </span>
+
+                Create a webpage using different
+                CSS cursor styles and pointer interactions.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 25 -->
+
+        <div class="program">
+
+            <a href="css-25.html">
+
+                <span class="number">
+                    25
+                </span>
+
+                Create a webpage using CSS outline
+                and outline-offset properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 26 -->
+
+        <div class="program">
+
+            <a href="css-26.html">
+
+                <span class="number">
+                    26
+                </span>
+
+                Create a webpage using CSS margin,
+                padding, and spacing utilities.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 27 -->
+
+        <div class="program">
+
+            <a href="css-27.html">
+
+                <span class="number">
+                    27
+                </span>
+
+                Create a webpage using CSS width
+                and height percentages, viewport
+                units, and rem units.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 28 -->
+
+        <div class="program">
+
+            <a href="css-28.html">
+
+                <span class="number">
+                    28
+                </span>
+
+                Create a webpage using CSS em, rem,
+                vw, vh, and percentage units.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 29 -->
+
+        <div class="program">
+
+            <a href="css-29.html">
+
+                <span class="number">
+                    29
+                </span>
+
+                Create a webpage using CSS object-fit
+                and object-position properties.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 30 -->
+
+        <div class="program">
+
+            <a href="css-30.html">
+
+                <span class="number">
+                    30
+                </span>
+
+                Create a webpage using CSS filters
+                such as blur, grayscale, brightness,
+                contrast, and opacity.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 31 -->
+
+        <div class="program">
+
+            <a href="css-31.html">
+
+                <span class="number">
+                    31
+                </span>
+
+                Create a webpage using CSS transitions
+                for colors, sizes, shadows, and positions.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 32 -->
+
+        <div class="program">
+
+            <a href="css-32.html">
+
+                <span class="number">
+                    32
+                </span>
+
+                Create a webpage using CSS 2D
+                transformations such as rotate,
+                scale, translate, and skew.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 33 -->
+
+        <div class="program">
+
+            <a href="css-33.html">
+
+                <span class="number">
+                    33
+                </span>
+
+                Create a webpage using CSS 3D
+                transformations and perspective effects.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 34 -->
+
+        <div class="program">
+
+            <a href="css-34.html">
+
+                <span class="number">
+                    34
+                </span>
+
+                Create a webpage using CSS
+                keyframe animations.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 35 -->
+
+        <div class="program">
+
+            <a href="css-35.html">
+
+                <span class="number">
+                    35
+                </span>
+
+                Create a webpage using a CSS
+                loading spinner and loading animation.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+                <!-- =========================
+             SAAS UI COMPONENTS
+        ========================= -->
+
+        <div class="section">
+            SaaS UI Components
+        </div>
+
+
+        <!-- 36 -->
+
+        <div class="program">
+
+            <a href="css-36.html">
+
+                <span class="number">
+                    36
+                </span>
+
+                Create a webpage for a SaaS navigation bar.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 37 -->
+
+        <div class="program">
+
+            <a href="css-37.html">
+
+                <span class="number">
+                    37
+                </span>
+
+                Create a webpage for a SaaS sidebar navigation.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 38 -->
+
+        <div class="program">
+
+            <a href="css-38.html">
+
+                <span class="number">
+                    38
+                </span>
+
+                Create a webpage for a responsive SaaS navigation menu.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 39 -->
+
+        <div class="program">
+
+            <a href="css-39.html">
+
+                <span class="number">
+                    39
+                </span>
+
+                Create a webpage for a mobile sidebar navigation drawer.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 40 -->
+
+        <div class="program">
+
+            <a href="css-40.html">
+
+                <span class="number">
+                    40
+                </span>
+
+                Create a webpage for a dropdown navigation menu.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 41 -->
+
+        <div class="program">
+
+            <a href="css-41.html">
+
+                <span class="number">
+                    41
+                </span>
+
+                Create a webpage for a mega navigation menu.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 42 -->
+
+        <div class="program">
+
+            <a href="css-42.html">
+
+                <span class="number">
+                    42
+                </span>
+
+                Create a webpage for a breadcrumb navigation component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 43 -->
+
+        <div class="program">
+
+            <a href="css-43.html">
+
+                <span class="number">
+                    43
+                </span>
+
+                Create a webpage for a tab navigation component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 44 -->
+
+        <div class="program">
+
+            <a href="css-44.html">
+
+                <span class="number">
+                    44
+                </span>
+
+                Create a webpage for a pill navigation component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 45 -->
+
+        <div class="program">
+
+            <a href="css-45.html">
+
+                <span class="number">
+                    45
+                </span>
+
+                Create a webpage for a pagination component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 46 -->
+
+        <div class="program">
+
+            <a href="css-46.html">
+
+                <span class="number">
+                    46
+                </span>
+
+                Create a webpage for a SaaS card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 47 -->
+
+        <div class="program">
+
+            <a href="css-47.html">
+
+                <span class="number">
+                    47
+                </span>
+
+                Create a webpage for a profile card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 48 -->
+
+        <div class="program">
+
+            <a href="css-48.html">
+
+                <span class="number">
+                    48
+                </span>
+
+                Create a webpage for a product card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 49 -->
+
+        <div class="program">
+
+            <a href="css-49.html">
+
+                <span class="number">
+                    49
+                </span>
+
+                Create a webpage for a feature card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 50 -->
+
+        <div class="program">
+
+            <a href="css-50.html">
+
+                <span class="number">
+                    50
+                </span>
+
+                Create a webpage for a pricing card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 51 -->
+
+        <div class="program">
+
+            <a href="css-51.html">
+
+                <span class="number">
+                    51
+                </span>
+
+                Create a webpage for a SaaS statistics card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 52 -->
+
+        <div class="program">
+
+            <a href="css-52.html">
+
+                <span class="number">
+                    52
+                </span>
+
+                Create a webpage for a KPI and metric card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 53 -->
+
+        <div class="program">
+
+            <a href="css-53.html">
+
+                <span class="number">
+                    53
+                </span>
+
+                Create a webpage for a dashboard card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 54 -->
+
+        <div class="program">
+
+            <a href="css-54.html">
+
+                <span class="number">
+                    54
+                </span>
+
+                Create a webpage for a notification card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 55 -->
+
+        <div class="program">
+
+            <a href="css-55.html">
+
+                <span class="number">
+                    55
+                </span>
+
+                Create a webpage for an activity feed card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 56 -->
+
+        <div class="program">
+
+            <a href="css-56.html">
+
+                <span class="number">
+                    56
+                </span>
+
+                Create a webpage for a testimonial card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 57 -->
+
+        <div class="program">
+
+            <a href="css-57.html">
+
+                <span class="number">
+                    57
+                </span>
+
+                Create a webpage for a SaaS hero section.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 58 -->
+
+        <div class="program">
+
+            <a href="css-58.html">
+
+                <span class="number">
+                    58
+                </span>
+
+                Create a webpage for a SaaS landing page header.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 59 -->
+
+        <div class="program">
+
+            <a href="css-59.html">
+
+                <span class="number">
+                    59
+                </span>
+
+                Create a webpage for primary, secondary, outline,
+                and destructive buttons.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 60 -->
+
+        <div class="program">
+
+            <a href="css-60.html">
+
+                <span class="number">
+                    60
+                </span>
+
+                Create a webpage for icon buttons and action buttons.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 61 -->
+
+        <div class="program">
+
+            <a href="css-61.html">
+
+                <span class="number">
+                    61
+                </span>
+
+                Create a webpage for badges, labels, tags, and chips.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 62 -->
+
+        <div class="program">
+
+            <a href="css-62.html">
+
+                <span class="number">
+                    62
+                </span>
+
+                Create a webpage for user avatars and avatar groups.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 63 -->
+
+        <div class="program">
+
+            <a href="css-63.html">
+
+                <span class="number">
+                    63
+                </span>
+
+                Create a webpage for dividers and section separators.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 64 -->
+
+        <div class="program">
+
+            <a href="css-64.html">
+
+                <span class="number">
+                    64
+                </span>
+
+                Create a webpage for alert and notification components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 65 -->
+
+        <div class="program">
+
+            <a href="css-65.html">
+
+                <span class="number">
+                    65
+                </span>
+
+                Create a webpage for toast notification components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 66 -->
+
+        <div class="program">
+
+            <a href="css-66.html">
+
+                <span class="number">
+                    66
+                </span>
+
+                Create a webpage for tooltip components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 67 -->
+
+        <div class="program">
+
+            <a href="css-67.html">
+
+                <span class="number">
+                    67
+                </span>
+
+                Create a webpage for popover components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 68 -->
+
+        <div class="program">
+
+            <a href="css-68.html">
+
+                <span class="number">
+                    68
+                </span>
+
+                Create a webpage for modal and dialog components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 69 -->
+
+        <div class="program">
+
+            <a href="css-69.html">
+
+                <span class="number">
+                    69
+                </span>
+
+                Create a webpage for confirmation dialog components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 70 -->
+
+        <div class="program">
+
+            <a href="css-70.html">
+
+                <span class="number">
+                    70
+                </span>
+
+                Create a webpage for a drawer and slide-out panel.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 71 -->
+
+        <div class="program">
+
+            <a href="css-71.html">
+
+                <span class="number">
+                    71
+                </span>
+
+                Create a webpage for a command palette interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 72 -->
+
+        <div class="program">
+
+            <a href="css-72.html">
+
+                <span class="number">
+                    72
+                </span>
+
+                Create a webpage for an accordion component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 73 -->
+
+        <div class="program">
+
+            <a href="css-73.html">
+
+                <span class="number">
+                    73
+                </span>
+
+                Create a webpage for an empty-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 74 -->
+
+        <div class="program">
+
+            <a href="css-74.html">
+
+                <span class="number">
+                    74
+                </span>
+
+                Create a webpage for an error-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 75 -->
+
+        <div class="program">
+
+            <a href="css-75.html">
+
+                <span class="number">
+                    75
+                </span>
+
+                Create a webpage for a success-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 76 -->
+
+        <div class="program">
+
+            <a href="css-76.html">
+
+                <span class="number">
+                    76
+                </span>
+
+                Create a webpage for a loading-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 77 -->
+
+        <div class="program">
+
+            <a href="css-77.html">
+
+                <span class="number">
+                    77
+                </span>
+
+                Create a webpage for a skeleton-loading component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 78 -->
+
+        <div class="program">
+
+            <a href="css-78.html">
+
+                <span class="number">
+                    78
+                </span>
+
+                Create a webpage for a progress bar component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 79 -->
+
+        <div class="program">
+
+            <a href="css-79.html">
+
+                <span class="number">
+                    79
+                </span>
+
+                Create a webpage for a progress stepper component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 80 -->
+
+        <div class="program">
+
+            <a href="css-80.html">
+
+                <span class="number">
+                    80
+                </span>
+
+                Create a webpage for a timeline and activity
+                history component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 81 -->
+
+        <div class="program">
+
+            <a href="css-81.html">
+
+                <span class="number">
+                    81
+                </span>
+
+                Create a webpage for a login form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 82 -->
+
+        <div class="program">
+
+            <a href="css-82.html">
+
+                <span class="number">
+                    82
+                </span>
+
+                Create a webpage for a signup form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 83 -->
+
+        <div class="program">
+
+            <a href="css-83.html">
+
+                <span class="number">
+                    83
+                </span>
+
+                Create a webpage for a forgot-password form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 84 -->
+
+        <div class="program">
+
+            <a href="css-84.html">
+
+                <span class="number">
+                    84
+                </span>
+
+                Create a webpage for a reset-password form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 85 -->
+
+        <div class="program">
+
+            <a href="css-85.html">
+
+                <span class="number">
+                    85
+                </span>
+
+                Create a webpage for a registration form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 86 -->
+
+        <div class="program">
+
+            <a href="css-86.html">
+
+                <span class="number">
+                    86
+                </span>
+
+                Create a webpage for a contact form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 87 -->
+
+        <div class="program">
+
+            <a href="css-87.html">
+
+                <span class="number">
+                    87
+                </span>
+
+                Create a webpage for a multi-step form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 88 -->
+
+        <div class="program">
+
+            <a href="css-88.html">
+
+                <span class="number">
+                    88
+                </span>
+
+                Create a webpage for form validation
+                and error messages.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =========================
+             MODERN SAAS
+        ========================= -->
+
+        <div class="section">
+            Modern SaaS, Analytics, AI/ML & Responsive UI
+        </div>
+
+
+        <!-- 89 -->
+
+        <div class="program">
+
+            <a href="css-89.html">
+
+                <span class="number">
+                    89
+                </span>
+
+                Create a webpage for a SaaS dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 90 -->
+
+        <div class="program">
+
+            <a href="css-90.html">
+
+                <span class="number">
+                    90
+                </span>
+
+                Create a webpage for an admin dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 91 -->
+
+        <div class="program">
+
+            <a href="css-91.html">
+
+                <span class="number">
+                    91
+                </span>
+
+                Create a webpage for an analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 92 -->
+
+        <div class="program">
+
+            <a href="css-92.html">
+
+                <span class="number">
+                    92
+                </span>
+
+                Create a webpage for a KPI analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 93 -->
+
+        <div class="program">
+
+            <a href="css-93.html">
+
+                <span class="number">
+                    93
+                </span>
+
+                Create a webpage for a revenue analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 94 -->
+
+        <div class="program">
+
+            <a href="css-94.html">
+
+                <span class="number">
+                    94
+                </span>
+
+                Create a webpage for a sales analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 95 -->
+
+        <div class="program">
+
+            <a href="css-95.html">
+
+                <span class="number">
+                    95
+                </span>
+
+                Create a webpage for user analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 96 -->
+
+        <div class="program">
+
+            <a href="css-96.html">
+
+                <span class="number">
+                    96
+                </span>
+
+                Create a webpage for customer analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 97 -->
+
+        <div class="program">
+
+            <a href="css-97.html">
+
+                <span class="number">
+                    97
+                </span>
+
+                Create a webpage for product analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 98 -->
+
+        <div class="program">
+
+            <a href="css-98.html">
+
+                <span class="number">
+                    98
+                </span>
+
+                Create a webpage for marketing analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 99 -->
+
+        <div class="program">
+
+            <a href="css-99.html">
+
+                <span class="number">
+                    99
+                </span>
+
+                Create a webpage for financial analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 100 -->
+
+        <div class="program">
+
+            <a href="css-100.html">
+
+                <span class="number">
+                    100
+                </span>
+
+                Create a webpage for real-time analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+                <!-- =========================
+             SAAS UI COMPONENTS
+        ========================= -->
+
+        <div class="section">
+            SaaS UI Components
+        </div>
+
+
+        <!-- 36 -->
+
+        <div class="program">
+
+            <a href="css-36.html">
+
+                <span class="number">
+                    36
+                </span>
+
+                Create a webpage for a SaaS navigation bar.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 37 -->
+
+        <div class="program">
+
+            <a href="css-37.html">
+
+                <span class="number">
+                    37
+                </span>
+
+                Create a webpage for a SaaS sidebar navigation.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 38 -->
+
+        <div class="program">
+
+            <a href="css-38.html">
+
+                <span class="number">
+                    38
+                </span>
+
+                Create a webpage for a responsive SaaS navigation menu.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 39 -->
+
+        <div class="program">
+
+            <a href="css-39.html">
+
+                <span class="number">
+                    39
+                </span>
+
+                Create a webpage for a mobile sidebar navigation drawer.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 40 -->
+
+        <div class="program">
+
+            <a href="css-40.html">
+
+                <span class="number">
+                    40
+                </span>
+
+                Create a webpage for a dropdown navigation menu.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 41 -->
+
+        <div class="program">
+
+            <a href="css-41.html">
+
+                <span class="number">
+                    41
+                </span>
+
+                Create a webpage for a mega navigation menu.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 42 -->
+
+        <div class="program">
+
+            <a href="css-42.html">
+
+                <span class="number">
+                    42
+                </span>
+
+                Create a webpage for a breadcrumb navigation component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 43 -->
+
+        <div class="program">
+
+            <a href="css-43.html">
+
+                <span class="number">
+                    43
+                </span>
+
+                Create a webpage for a tab navigation component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 44 -->
+
+        <div class="program">
+
+            <a href="css-44.html">
+
+                <span class="number">
+                    44
+                </span>
+
+                Create a webpage for a pill navigation component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 45 -->
+
+        <div class="program">
+
+            <a href="css-45.html">
+
+                <span class="number">
+                    45
+                </span>
+
+                Create a webpage for a pagination component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 46 -->
+
+        <div class="program">
+
+            <a href="css-46.html">
+
+                <span class="number">
+                    46
+                </span>
+
+                Create a webpage for a SaaS card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 47 -->
+
+        <div class="program">
+
+            <a href="css-47.html">
+
+                <span class="number">
+                    47
+                </span>
+
+                Create a webpage for a profile card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 48 -->
+
+        <div class="program">
+
+            <a href="css-48.html">
+
+                <span class="number">
+                    48
+                </span>
+
+                Create a webpage for a product card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 49 -->
+
+        <div class="program">
+
+            <a href="css-49.html">
+
+                <span class="number">
+                    49
+                </span>
+
+                Create a webpage for a feature card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 50 -->
+
+        <div class="program">
+
+            <a href="css-50.html">
+
+                <span class="number">
+                    50
+                </span>
+
+                Create a webpage for a pricing card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 51 -->
+
+        <div class="program">
+
+            <a href="css-51.html">
+
+                <span class="number">
+                    51
+                </span>
+
+                Create a webpage for a SaaS statistics card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 52 -->
+
+        <div class="program">
+
+            <a href="css-52.html">
+
+                <span class="number">
+                    52
+                </span>
+
+                Create a webpage for a KPI and metric card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 53 -->
+
+        <div class="program">
+
+            <a href="css-53.html">
+
+                <span class="number">
+                    53
+                </span>
+
+                Create a webpage for a dashboard card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 54 -->
+
+        <div class="program">
+
+            <a href="css-54.html">
+
+                <span class="number">
+                    54
+                </span>
+
+                Create a webpage for a notification card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 55 -->
+
+        <div class="program">
+
+            <a href="css-55.html">
+
+                <span class="number">
+                    55
+                </span>
+
+                Create a webpage for an activity feed card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 56 -->
+
+        <div class="program">
+
+            <a href="css-56.html">
+
+                <span class="number">
+                    56
+                </span>
+
+                Create a webpage for a testimonial card component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 57 -->
+
+        <div class="program">
+
+            <a href="css-57.html">
+
+                <span class="number">
+                    57
+                </span>
+
+                Create a webpage for a SaaS hero section.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 58 -->
+
+        <div class="program">
+
+            <a href="css-58.html">
+
+                <span class="number">
+                    58
+                </span>
+
+                Create a webpage for a SaaS landing page header.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 59 -->
+
+        <div class="program">
+
+            <a href="css-59.html">
+
+                <span class="number">
+                    59
+                </span>
+
+                Create a webpage for primary, secondary, outline,
+                and destructive buttons.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 60 -->
+
+        <div class="program">
+
+            <a href="css-60.html">
+
+                <span class="number">
+                    60
+                </span>
+
+                Create a webpage for icon buttons and action buttons.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 61 -->
+
+        <div class="program">
+
+            <a href="css-61.html">
+
+                <span class="number">
+                    61
+                </span>
+
+                Create a webpage for badges, labels, tags, and chips.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 62 -->
+
+        <div class="program">
+
+            <a href="css-62.html">
+
+                <span class="number">
+                    62
+                </span>
+
+                Create a webpage for user avatars and avatar groups.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 63 -->
+
+        <div class="program">
+
+            <a href="css-63.html">
+
+                <span class="number">
+                    63
+                </span>
+
+                Create a webpage for dividers and section separators.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 64 -->
+
+        <div class="program">
+
+            <a href="css-64.html">
+
+                <span class="number">
+                    64
+                </span>
+
+                Create a webpage for alert and notification components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 65 -->
+
+        <div class="program">
+
+            <a href="css-65.html">
+
+                <span class="number">
+                    65
+                </span>
+
+                Create a webpage for toast notification components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 66 -->
+
+        <div class="program">
+
+            <a href="css-66.html">
+
+                <span class="number">
+                    66
+                </span>
+
+                Create a webpage for tooltip components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 67 -->
+
+        <div class="program">
+
+            <a href="css-67.html">
+
+                <span class="number">
+                    67
+                </span>
+
+                Create a webpage for popover components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 68 -->
+
+        <div class="program">
+
+            <a href="css-68.html">
+
+                <span class="number">
+                    68
+                </span>
+
+                Create a webpage for modal and dialog components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 69 -->
+
+        <div class="program">
+
+            <a href="css-69.html">
+
+                <span class="number">
+                    69
+                </span>
+
+                Create a webpage for confirmation dialog components.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 70 -->
+
+        <div class="program">
+
+            <a href="css-70.html">
+
+                <span class="number">
+                    70
+                </span>
+
+                Create a webpage for a drawer and slide-out panel.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 71 -->
+
+        <div class="program">
+
+            <a href="css-71.html">
+
+                <span class="number">
+                    71
+                </span>
+
+                Create a webpage for a command palette interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 72 -->
+
+        <div class="program">
+
+            <a href="css-72.html">
+
+                <span class="number">
+                    72
+                </span>
+
+                Create a webpage for an accordion component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 73 -->
+
+        <div class="program">
+
+            <a href="css-73.html">
+
+                <span class="number">
+                    73
+                </span>
+
+                Create a webpage for an empty-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 74 -->
+
+        <div class="program">
+
+            <a href="css-74.html">
+
+                <span class="number">
+                    74
+                </span>
+
+                Create a webpage for an error-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 75 -->
+
+        <div class="program">
+
+            <a href="css-75.html">
+
+                <span class="number">
+                    75
+                </span>
+
+                Create a webpage for a success-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 76 -->
+
+        <div class="program">
+
+            <a href="css-76.html">
+
+                <span class="number">
+                    76
+                </span>
+
+                Create a webpage for a loading-state component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 77 -->
+
+        <div class="program">
+
+            <a href="css-77.html">
+
+                <span class="number">
+                    77
+                </span>
+
+                Create a webpage for a skeleton-loading component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 78 -->
+
+        <div class="program">
+
+            <a href="css-78.html">
+
+                <span class="number">
+                    78
+                </span>
+
+                Create a webpage for a progress bar component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 79 -->
+
+        <div class="program">
+
+            <a href="css-79.html">
+
+                <span class="number">
+                    79
+                </span>
+
+                Create a webpage for a progress stepper component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 80 -->
+
+        <div class="program">
+
+            <a href="css-80.html">
+
+                <span class="number">
+                    80
+                </span>
+
+                Create a webpage for a timeline and activity
+                history component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 81 -->
+
+        <div class="program">
+
+            <a href="css-81.html">
+
+                <span class="number">
+                    81
+                </span>
+
+                Create a webpage for a login form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 82 -->
+
+        <div class="program">
+
+            <a href="css-82.html">
+
+                <span class="number">
+                    82
+                </span>
+
+                Create a webpage for a signup form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 83 -->
+
+        <div class="program">
+
+            <a href="css-83.html">
+
+                <span class="number">
+                    83
+                </span>
+
+                Create a webpage for a forgot-password form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 84 -->
+
+        <div class="program">
+
+            <a href="css-84.html">
+
+                <span class="number">
+                    84
+                </span>
+
+                Create a webpage for a reset-password form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 85 -->
+
+        <div class="program">
+
+            <a href="css-85.html">
+
+                <span class="number">
+                    85
+                </span>
+
+                Create a webpage for a registration form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 86 -->
+
+        <div class="program">
+
+            <a href="css-86.html">
+
+                <span class="number">
+                    86
+                </span>
+
+                Create a webpage for a contact form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 87 -->
+
+        <div class="program">
+
+            <a href="css-87.html">
+
+                <span class="number">
+                    87
+                </span>
+
+                Create a webpage for a multi-step form.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 88 -->
+
+        <div class="program">
+
+            <a href="css-88.html">
+
+                <span class="number">
+                    88
+                </span>
+
+                Create a webpage for form validation
+                and error messages.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =========================
+             MODERN SAAS
+        ========================= -->
+
+        <div class="section">
+            Modern SaaS, Analytics, AI/ML & Responsive UI
+        </div>
+
+
+        <!-- 89 -->
+
+        <div class="program">
+
+            <a href="css-89.html">
+
+                <span class="number">
+                    89
+                </span>
+
+                Create a webpage for a SaaS dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 90 -->
+
+        <div class="program">
+
+            <a href="css-90.html">
+
+                <span class="number">
+                    90
+                </span>
+
+                Create a webpage for an admin dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 91 -->
+
+        <div class="program">
+
+            <a href="css-91.html">
+
+                <span class="number">
+                    91
+                </span>
+
+                Create a webpage for an analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 92 -->
+
+        <div class="program">
+
+            <a href="css-92.html">
+
+                <span class="number">
+                    92
+                </span>
+
+                Create a webpage for a KPI analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 93 -->
+
+        <div class="program">
+
+            <a href="css-93.html">
+
+                <span class="number">
+                    93
+                </span>
+
+                Create a webpage for a revenue analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 94 -->
+
+        <div class="program">
+
+            <a href="css-94.html">
+
+                <span class="number">
+                    94
+                </span>
+
+                Create a webpage for a sales analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 95 -->
+
+        <div class="program">
+
+            <a href="css-95.html">
+
+                <span class="number">
+                    95
+                </span>
+
+                Create a webpage for user analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 96 -->
+
+        <div class="program">
+
+            <a href="css-96.html">
+
+                <span class="number">
+                    96
+                </span>
+
+                Create a webpage for customer analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 97 -->
+
+        <div class="program">
+
+            <a href="css-97.html">
+
+                <span class="number">
+                    97
+                </span>
+
+                Create a webpage for product analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 98 -->
+
+        <div class="program">
+
+            <a href="css-98.html">
+
+                <span class="number">
+                    98
+                </span>
+
+                Create a webpage for marketing analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 99 -->
+
+        <div class="program">
+
+            <a href="css-99.html">
+
+                <span class="number">
+                    99
+                </span>
+
+                Create a webpage for financial analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 100 -->
+
+        <div class="program">
+
+            <a href="css-100.html">
+
+                <span class="number">
+                    100
+                </span>
+
+                Create a webpage for real-time analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+              <!-- 101 -->
+
+        <div class="program">
+
+            <a href="css-101.html">
+
+                <span class="number">
+                    101
+                </span>
+
+                Create a webpage for SaaS usage analytics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 102 -->
+
+        <div class="program">
+
+            <a href="css-102.html">
+
+                <span class="number">
+                    102
+                </span>
+
+                Create a webpage for a conversion funnel dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 103 -->
+
+        <div class="program">
+
+            <a href="css-103.html">
+
+                <span class="number">
+                    103
+                </span>
+
+                Create a webpage for a retention and cohort analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 104 -->
+
+        <div class="program">
+
+            <a href="css-104.html">
+
+                <span class="number">
+                    104
+                </span>
+
+                Create a webpage for a revenue chart dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 105 -->
+
+        <div class="program">
+
+            <a href="css-105.html">
+
+                <span class="number">
+                    105
+                </span>
+
+                Create a webpage for a line chart analytics component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 106 -->
+
+        <div class="program">
+
+            <a href="css-106.html">
+
+                <span class="number">
+                    106
+                </span>
+
+                Create a webpage for a bar chart analytics component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 107 -->
+
+        <div class="program">
+
+            <a href="css-107.html">
+
+                <span class="number">
+                    107
+                </span>
+
+                Create a webpage for an area chart analytics component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 108 -->
+
+        <div class="program">
+
+            <a href="css-108.html">
+
+                <span class="number">
+                    108
+                </span>
+
+                Create a webpage for a pie and donut chart analytics component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 109 -->
+
+        <div class="program">
+
+            <a href="css-109.html">
+
+                <span class="number">
+                    109
+                </span>
+
+                Create a webpage for a heatmap analytics component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 110 -->
+
+        <div class="program">
+
+            <a href="css-110.html">
+
+                <span class="number">
+                    110
+                </span>
+
+                Create a webpage for data visualization cards.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 111 -->
+
+        <div class="program">
+
+            <a href="css-111.html">
+
+                <span class="number">
+                    111
+                </span>
+
+                Create a webpage for an analytics date-range filter.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 112 -->
+
+        <div class="program">
+
+            <a href="css-112.html">
+
+                <span class="number">
+                    112
+                </span>
+
+                Create a webpage for an analytics filter and sorting panel.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 113 -->
+
+        <div class="program">
+
+            <a href="css-113.html">
+
+                <span class="number">
+                    113
+                </span>
+
+                Create a webpage for customizable dashboard widgets.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 114 -->
+
+        <div class="program">
+
+            <a href="css-114.html">
+
+                <span class="number">
+                    114
+                </span>
+
+                Create a webpage for a customizable analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 115 -->
+
+        <div class="program">
+
+            <a href="css-115.html">
+
+                <span class="number">
+                    115
+                </span>
+
+                Create a webpage for an analytics report and export interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 116 -->
+
+        <div class="program">
+
+            <a href="css-116.html">
+
+                <span class="number">
+                    116
+                </span>
+
+                Create a webpage for an AI assistant interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 117 -->
+
+        <div class="program">
+
+            <a href="css-117.html">
+
+                <span class="number">
+                    117
+                </span>
+
+                Create a webpage for an AI chat interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 118 -->
+
+        <div class="program">
+
+            <a href="css-118.html">
+
+                <span class="number">
+                    118
+                </span>
+
+                Create a webpage for an AI chat sidebar.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 119 -->
+
+        <div class="program">
+
+            <a href="css-119.html">
+
+                <span class="number">
+                    119
+                </span>
+
+                Create a webpage for an AI command bar.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 120 -->
+
+        <div class="program">
+
+            <a href="css-120.html">
+
+                <span class="number">
+                    120
+                </span>
+
+                Create a webpage for an AI-powered search interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 121 -->
+
+        <div class="program">
+
+            <a href="css-121.html">
+
+                <span class="number">
+                    121
+                </span>
+
+                Create a webpage for AI search results.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 122 -->
+
+        <div class="program">
+
+            <a href="css-122.html">
+
+                <span class="number">
+                    122
+                </span>
+
+                Create a webpage for an AI prompt input interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 123 -->
+
+        <div class="program">
+
+            <a href="css-123.html">
+
+                <span class="number">
+                    123
+                </span>
+
+                Create a webpage for AI prompt suggestions.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 124 -->
+
+        <div class="program">
+
+            <a href="css-124.html">
+
+                <span class="number">
+                    124
+                </span>
+
+                Create a webpage for an AI response card.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 125 -->
+
+        <div class="program">
+
+            <a href="css-125.html">
+
+                <span class="number">
+                    125
+                </span>
+
+                Create a webpage for an AI-generated content card.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 126 -->
+
+        <div class="program">
+
+            <a href="css-126.html">
+
+                <span class="number">
+                    126
+                </span>
+
+                Create a webpage for an AI summary card.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 127 -->
+
+        <div class="program">
+
+            <a href="css-127.html">
+
+                <span class="number">
+                    127
+                </span>
+
+                Create a webpage for an AI recommendation card.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 128 -->
+
+        <div class="program">
+
+            <a href="css-128.html">
+
+                <span class="number">
+                    128
+                </span>
+
+                Create a webpage for an AI insight card.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 129 -->
+
+        <div class="program">
+
+            <a href="css-129.html">
+
+                <span class="number">
+                    129
+                </span>
+
+                Create a webpage for an AI copilot interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 130 -->
+
+        <div class="program">
+
+            <a href="css-130.html">
+
+                <span class="number">
+                    130
+                </span>
+
+                Create a webpage for an AI autocomplete interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 131 -->
+
+        <div class="program">
+
+            <a href="css-131.html">
+
+                <span class="number">
+                    131
+                </span>
+
+                Create a webpage for AI smart suggestions.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 132 -->
+
+        <div class="program">
+
+            <a href="css-132.html">
+
+                <span class="number">
+                    132
+                </span>
+
+                Create a webpage for an AI content generator.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 133 -->
+
+        <div class="program">
+
+            <a href="css-133.html">
+
+                <span class="number">
+                    133
+                </span>
+
+                Create a webpage for an AI document summarizer.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 134 -->
+
+        <div class="program">
+
+            <a href="css-134.html">
+
+                <span class="number">
+                    134
+                </span>
+
+                Create a webpage for an AI data analysis interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 135 -->
+
+        <div class="program">
+
+            <a href="css-135.html">
+
+                <span class="number">
+                    135
+                </span>
+
+                Create a webpage for a natural-language query interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 136 -->
+
+        <div class="program">
+
+            <a href="css-136.html">
+
+                <span class="number">
+                    136
+                </span>
+
+                Create a webpage for an Ask Your Data interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 137 -->
+
+        <div class="program">
+
+            <a href="css-137.html">
+
+                <span class="number">
+                    137
+                </span>
+
+                Create a webpage for a text-to-chart analytics interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 138 -->
+
+        <div class="program">
+
+            <a href="css-138.html">
+
+                <span class="number">
+                    138
+                </span>
+
+                Create a webpage for an AI report generator.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 139 -->
+
+        <div class="program">
+
+            <a href="css-139.html">
+
+                <span class="number">
+                    139
+                </span>
+
+                Create a webpage for an AI-powered analytics dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 140 -->
+
+        <div class="program">
+
+            <a href="css-140.html">
+
+                <span class="number">
+                    140
+                </span>
+
+                Create a webpage for an AI prediction card.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 141 -->
+
+        <div class="program">
+
+            <a href="css-141.html">
+
+                <span class="number">
+                    141
+                </span>
+
+                Create a webpage for an AI forecasting dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 142 -->
+
+        <div class="program">
+
+            <a href="css-142.html">
+
+                <span class="number">
+                    142
+                </span>
+
+                Create a webpage for an anomaly detection dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 143 -->
+
+        <div class="program">
+
+            <a href="css-143.html">
+
+                <span class="number">
+                    143
+                </span>
+
+                Create a webpage for an AI confidence score component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 144 -->
+
+        <div class="program">
+
+            <a href="css-144.html">
+
+                <span class="number">
+                    144
+                </span>
+
+                Create a webpage for an AI sources and citations component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 145 -->
+
+        <div class="program">
+
+            <a href="css-145.html">
+
+                <span class="number">
+                    145
+                </span>
+
+                Create a webpage for an AI explanation and reasoning interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 146 -->
+
+        <div class="program">
+
+            <a href="css-146.html">
+
+                <span class="number">
+                    146
+                </span>
+
+                Create a webpage for an AI agent dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 147 -->
+
+        <div class="program">
+
+            <a href="css-147.html">
+
+                <span class="number">
+                    147
+                </span>
+
+                Create a webpage for an AI agent list.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 148 -->
+
+        <div class="program">
+
+            <a href="css-148.html">
+
+                <span class="number">
+                    148
+                </span>
+
+                Create a webpage for an AI agent profile.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 149 -->
+
+        <div class="program">
+
+            <a href="css-149.html">
+
+                <span class="number">
+                    149
+                </span>
+
+                Create a webpage for AI agent status monitoring.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 150 -->
+
+        <div class="program">
+
+            <a href="css-150.html">
+
+                <span class="number">
+                    150
+                </span>
+
+                Create a webpage for an AI agent task queue.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 151 -->
+
+        <div class="program">
+
+            <a href="css-151.html">
+
+                <span class="number">
+                    151
+                </span>
+
+                Create a webpage for an AI agent activity log.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 152 -->
+
+        <div class="program">
+
+            <a href="css-152.html">
+
+                <span class="number">
+                    152
+                </span>
+
+                Create a webpage for an AI agent execution history.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 153 -->
+
+        <div class="program">
+
+            <a href="css-153.html">
+
+                <span class="number">
+                    153
+                </span>
+
+                Create a webpage for an AI agent execution timeline.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 154 -->
+
+        <div class="program">
+
+            <a href="css-154.html">
+
+                <span class="number">
+                    154
+                </span>
+
+                Create a webpage for an AI agent workflow.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 155 -->
+
+        <div class="program">
+
+            <a href="css-155.html">
+
+                <span class="number">
+                    155
+                </span>
+
+                Create a webpage for an AI agent builder.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 156 -->
+
+        <div class="program">
+
+            <a href="css-156.html">
+
+                <span class="number">
+                    156
+                </span>
+
+                Create a webpage for AI agent configuration settings.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 157 -->
+
+        <div class="program">
+
+            <a href="css-157.html">
+
+                <span class="number">
+                    157
+                </span>
+
+                Create a webpage for AI agent permissions management.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 158 -->
+
+        <div class="program">
+
+            <a href="css-158.html">
+
+                <span class="number">
+                    158
+                </span>
+
+                Create a webpage for an AI agent approval interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 159 -->
+
+        <div class="program">
+
+            <a href="css-159.html">
+
+                <span class="number">
+                    159
+                </span>
+
+                Create a webpage for a human-in-the-loop AI workflow.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 160 -->
+
+        <div class="program">
+
+            <a href="css-160.html">
+
+                <span class="number">
+                    160
+                </span>
+
+                Create a webpage for an AI agent error and retry interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 161 -->
+
+        <div class="program">
+
+            <a href="css-161.html">
+
+                <span class="number">
+                    161
+                </span>
+
+                Create a webpage for AI agent monitoring.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 162 -->
+
+        <div class="program">
+
+            <a href="css-162.html">
+
+                <span class="number">
+                    162
+                </span>
+
+                Create a webpage for multi-agent workflow management.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 163 -->
+
+        <div class="program">
+
+            <a href="css-163.html">
+
+                <span class="number">
+                    163
+                </span>
+
+                Create a webpage for an automation workflow builder.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 164 -->
+
+        <div class="program">
+
+            <a href="css-164.html">
+
+                <span class="number">
+                    164
+                </span>
+
+                Create a webpage for a trigger and action workflow.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 165 -->
+
+        <div class="program">
+
+            <a href="css-165.html">
+
+                <span class="number">
+                    165
+                </span>
+
+                Create a webpage for an ML prediction dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 166 -->
+
+        <div class="program">
+
+            <a href="css-166.html">
+
+                <span class="number">
+                    166
+                </span>
+
+                Create a webpage for an ML forecast chart.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 167 -->
+
+        <div class="program">
+
+            <a href="css-167.html">
+
+                <span class="number">
+                    167
+                </span>
+
+                Create a webpage for an ML probability score component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 168 -->
+
+        <div class="program">
+
+            <a href="css-168.html">
+
+                <span class="number">
+                    168
+                </span>
+
+                Create a webpage for an ML confidence score component.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 169 -->
+
+        <div class="program">
+
+            <a href="css-169.html">
+
+                <span class="number">
+                    169
+                </span>
+
+                Create a webpage for an ML risk score dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 170 -->
+
+        <div class="program">
+
+            <a href="css-170.html">
+
+                <span class="number">
+                    170
+                </span>
+
+                Create a webpage for a recommendation engine interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 171 -->
+
+        <div class="program">
+
+            <a href="css-171.html">
+
+                <span class="number">
+                    171
+                </span>
+
+                Create a webpage for an ML anomaly alert.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 172 -->
+
+        <div class="program">
+
+            <a href="css-172.html">
+
+                <span class="number">
+                    172
+                </span>
+
+                Create a webpage for an ML outlier detection interface.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 173 -->
+
+        <div class="program">
+
+            <a href="css-173.html">
+
+                <span class="number">
+                    173
+                </span>
+
+                Create a webpage for an ML classification result.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 174 -->
+
+        <div class="program">
+
+            <a href="css-174.html">
+
+                <span class="number">
+                    174
+                </span>
+
+                Create a webpage for an ML prediction comparison dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 175 -->
+
+        <div class="program">
+
+            <a href="css-175.html">
+
+                <span class="number">
+                    175
+                </span>
+
+                Create a webpage for an ML model performance dashboard.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 176 -->
+
+        <div class="program">
+
+            <a href="css-176.html">
+
+                <span class="number">
+                    176
+                </span>
+
+                Create a webpage for ML model metrics.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 177 -->
+
+        <div class="program">
+
+            <a href="css-177.html">
+
+                <span class="number">
+                    177
+                </span>
+
+                Create a webpage for ML model version management.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 178 -->
+
+        <div class="program">
+
+            <a href="css-178.html">
+
+                <span class="number">
+                    178
+                </span>
+
+                Create a webpage for ML model monitoring.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 179 -->
+
+        <div class="program">
+
+            <a href="css-179.html">
+
+                <span class="number">
+                    179
+                </span>
+
+                Create a webpage for ML data drift monitoring.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- 180 -->
+
+        <div class="program">
+
+            <a href="css-180.html">
+
+                <span class="number">
+                    180
+                </span>
+
+                Create a webpage for ML feature importance visualization.
+
+                <span class="open-program">
+                    OPEN_PROGRAM
+                </span>
+
+            </a>
+
+        </div>  
+                <!-- 181 -->
+
+        <div class="program">
+            <a href="css-181.html">
+                <span class="number">181</span>
+                Create a webpage for ML prediction explanation.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 182 -->
+
+        <div class="program">
+            <a href="css-182.html">
+                <span class="number">182</span>
+                Create a webpage for an ML experiment dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 183 -->
+
+        <div class="program">
+            <a href="css-183.html">
+                <span class="number">183</span>
+                Create a webpage for account settings.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 184 -->
+
+        <div class="program">
+            <a href="css-184.html">
+                <span class="number">184</span>
+                Create a webpage for profile settings.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 185 -->
+
+        <div class="program">
+            <a href="css-185.html">
+                <span class="number">185</span>
+                Create a webpage for team management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 186 -->
+
+        <div class="program">
+            <a href="css-186.html">
+                <span class="number">186</span>
+                Create a webpage for user management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 187 -->
+
+        <div class="program">
+            <a href="css-187.html">
+                <span class="number">187</span>
+                Create a webpage for role and permission management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 188 -->
+
+        <div class="program">
+            <a href="css-188.html">
+                <span class="number">188</span>
+                Create a webpage for organization settings.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 189 -->
+
+        <div class="program">
+            <a href="css-189.html">
+                <span class="number">189</span>
+                Create a webpage for API key management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 190 -->
+
+        <div class="program">
+            <a href="css-190.html">
+                <span class="number">190</span>
+                Create a webpage for API usage analytics.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 191 -->
+
+        <div class="program">
+            <a href="css-191.html">
+                <span class="number">191</span>
+                Create a webpage for integrations management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 192 -->
+
+        <div class="program">
+            <a href="css-192.html">
+                <span class="number">192</span>
+                Create a webpage for webhook management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 193 -->
+
+        <div class="program">
+            <a href="css-193.html">
+                <span class="number">193</span>
+                Create a webpage for developer settings.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 194 -->
+
+        <div class="program">
+            <a href="css-194.html">
+                <span class="number">194</span>
+                Create a webpage for security settings.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 195 -->
+
+        <div class="program">
+            <a href="css-195.html">
+                <span class="number">195</span>
+                Create a webpage for two-factor authentication settings.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 196 -->
+
+        <div class="program">
+            <a href="css-196.html">
+                <span class="number">196</span>
+                Create a webpage for active sessions and device management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 197 -->
+
+        <div class="program">
+            <a href="css-197.html">
+                <span class="number">197</span>
+                Create a webpage for an audit log.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 198 -->
+
+        <div class="program">
+            <a href="css-198.html">
+                <span class="number">198</span>
+                Create a webpage for SaaS pricing plans.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 199 -->
+
+        <div class="program">
+            <a href="css-199.html">
+                <span class="number">199</span>
+                Create a webpage for pricing plan comparison.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 200 -->
+
+        <div class="program">
+            <a href="css-200.html">
+                <span class="number">200</span>
+                Create a webpage for subscription management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 201 -->
+
+        <div class="program">
+            <a href="css-201.html">
+                <span class="number">201</span>
+                Create a webpage for subscription upgrade and downgrade.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 202 -->
+
+        <div class="program">
+            <a href="css-202.html">
+                <span class="number">202</span>
+                Create a webpage for a SaaS billing dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 203 -->
+
+        <div class="program">
+            <a href="css-203.html">
+                <span class="number">203</span>
+                Create a webpage for payment method management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 204 -->
+
+        <div class="program">
+            <a href="css-204.html">
+                <span class="number">204</span>
+                Create a webpage for invoice management.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 205 -->
+
+        <div class="program">
+            <a href="css-205.html">
+                <span class="number">205</span>
+                Create a webpage for invoice details.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 206 -->
+
+        <div class="program">
+            <a href="css-206.html">
+                <span class="number">206</span>
+                Create a webpage for usage-based billing.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 207 -->
+
+        <div class="program">
+            <a href="css-207.html">
+                <span class="number">207</span>
+                Create a webpage for usage and consumption meters.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 208 -->
+
+        <div class="program">
+            <a href="css-208.html">
+                <span class="number">208</span>
+                Create a webpage for AI token and credit usage.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 209 -->
+
+        <div class="program">
+            <a href="css-209.html">
+                <span class="number">209</span>
+                Create a webpage for AI spending limits.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 210 -->
+
+        <div class="program">
+            <a href="css-210.html">
+                <span class="number">210</span>
+                Create a webpage for billing alerts.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 211 -->
+
+        <div class="program">
+            <a href="css-211.html">
+                <span class="number">211</span>
+                Create a webpage for a responsive Flexbox layout.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 212 -->
+
+        <div class="program">
+            <a href="css-212.html">
+                <span class="number">212</span>
+                Create a webpage for a responsive CSS Grid layout.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 213 -->
+
+        <div class="program">
+            <a href="css-213.html">
+                <span class="number">213</span>
+                Create a webpage for a responsive SaaS dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 214 -->
+
+        <div class="program">
+            <a href="css-214.html">
+                <span class="number">214</span>
+                Create a webpage for a responsive data table.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 215 -->
+
+        <div class="program">
+            <a href="css-215.html">
+                <span class="number">215</span>
+                Create a webpage for responsive SaaS cards.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 216 -->
+
+        <div class="program">
+            <a href="css-216.html">
+                <span class="number">216</span>
+                Create a webpage for a responsive SaaS form.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 217 -->
+
+        <div class="program">
+            <a href="css-217.html">
+                <span class="number">217</span>
+                Create a webpage for a responsive analytics dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 218 -->
+
+        <div class="program">
+            <a href="css-218.html">
+                <span class="number">218</span>
+                Create a webpage for responsive charts and data visualization.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 219 -->
+
+        <div class="program">
+            <a href="css-219.html">
+                <span class="number">219</span>
+                Create a webpage for a responsive pricing page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 220 -->
+
+        <div class="program">
+            <a href="css-220.html">
+                <span class="number">220</span>
+                Create a webpage for a responsive login page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 221 -->
+
+        <div class="program">
+            <a href="css-221.html">
+                <span class="number">221</span>
+                Create a webpage for a responsive signup page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 222 -->
+
+        <div class="program">
+            <a href="css-222.html">
+                <span class="number">222</span>
+                Create a webpage for a mobile-first SaaS layout.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 223 -->
+
+        <div class="program">
+            <a href="css-223.html">
+                <span class="number">223</span>
+                Create a webpage for a mobile bottom navigation.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 224 -->
+
+        <div class="program">
+            <a href="css-224.html">
+                <span class="number">224</span>
+                Create a webpage for a sticky SaaS header.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 225 -->
+
+        <div class="program">
+            <a href="css-225.html">
+                <span class="number">225</span>
+                Create a webpage for a fixed SaaS sidebar.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 226 -->
+
+        <div class="program">
+            <a href="css-226.html">
+                <span class="number">226</span>
+                Create a webpage for a responsive SaaS footer.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 227 -->
+
+        <div class="program">
+            <a href="css-227.html">
+                <span class="number">227</span>
+                Create a webpage for a responsive photo and media gallery.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 228 -->
+
+        <div class="program">
+            <a href="css-228.html">
+                <span class="number">228</span>
+                Create a webpage for CSS hover effects and micro-interactions.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 229 -->
+
+        <div class="program">
+            <a href="css-229.html">
+                <span class="number">229</span>
+                Create a webpage for animated SaaS cards and components.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 230 -->
+
+        <div class="program">
+            <a href="css-230.html">
+                <span class="number">230</span>
+                Create a webpage for a CSS sliding card animation.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 231 -->
+
+        <div class="program">
+            <a href="css-231.html">
+                <span class="number">231</span>
+                Create a webpage for a CSS-only modal and popup interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 232 -->
+
+        <div class="program">
+            <a href="css-232.html">
+                <span class="number">232</span>
+                Create a webpage for a dark-mode SaaS interface using CSS variables.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 233 -->
+
+        <div class="program">
+            <a href="css-233.html">
+                <span class="number">233</span>
+                Create a webpage for a light and dark theme switcher.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 234 -->
+
+        <div class="program">
+            <a href="css-234.html">
+                <span class="number">234</span>
+                Create a webpage for responsive SaaS typography.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 235 -->
+
+        <div class="program">
+            <a href="css-235.html">
+                <span class="number">235</span>
+                Create a webpage for a glassmorphism SaaS interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 236 -->
+
+        <div class="program">
+            <a href="css-236.html">
+                <span class="number">236</span>
+                Create a webpage for a gradient-based SaaS interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 237 -->
+
+        <div class="program">
+            <a href="css-237.html">
+                <span class="number">237</span>
+                Create a webpage for a SaaS command palette with keyboard shortcuts.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 238 -->
+
+        <div class="program">
+            <a href="css-238.html">
+                <span class="number">238</span>
+                Create a webpage for an AI notification center.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 239 -->
+
+        <div class="program">
+            <a href="css-239.html">
+                <span class="number">239</span>
+                Create a webpage for a SaaS user profile menu.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 240 -->
+
+        <div class="program">
+            <a href="css-240.html">
+                <span class="number">240</span>
+                Create a webpage for a SaaS onboarding workflow.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 241 -->
+
+        <div class="program">
+            <a href="css-241.html">
+                <span class="number">241</span>
+                Create a webpage for a SaaS help and support interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 242 -->
+
+        <div class="program">
+            <a href="css-242.html">
+                <span class="number">242</span>
+                Create a webpage for a SaaS documentation interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 243 -->
+
+        <div class="program">
+            <a href="css-243.html">
+                <span class="number">243</span>
+                Create a webpage for a SaaS search and filter interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 244 -->
+
+        <div class="program">
+            <a href="css-244.html">
+                <span class="number">244</span>
+                Create a webpage for a SaaS calendar and scheduling interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 245 -->
+
+        <div class="program">
+            <a href="css-245.html">
+                <span class="number">245</span>
+                Create a webpage for a SaaS file management interface.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 246 -->
+
+        <div class="program">
+            <a href="css-246.html">
+                <span class="number">246</span>
+                Create a webpage for a SaaS collaboration and team workspace.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- =========================
+             FINAL SAAS PROJECTS
+        ========================= -->
+
+        <div class="section">
+            Final SaaS Webpage Projects
+        </div>
+
+
+        <!-- 248 -->
+
+        <div class="program">
+            <a href="css-248.html">
+                <span class="number">248</span>
+                Create a webpage for a complete SaaS landing page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 249 -->
+
+        <div class="program">
+            <a href="css-249.html">
+                <span class="number">249</span>
+                Create a webpage for a SaaS login page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 250 -->
+
+        <div class="program">
+            <a href="css-250.html">
+                <span class="number">250</span>
+                Create a webpage for a SaaS signup page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 251 -->
+
+        <div class="program">
+            <a href="css-251.html">
+                <span class="number">251</span>
+                Create a webpage for a SaaS onboarding page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 252 -->
+
+        <div class="program">
+            <a href="css-252.html">
+                <span class="number">252</span>
+                Create a webpage for a complete SaaS dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 253 -->
+
+        <div class="program">
+            <a href="css-253.html">
+                <span class="number">253</span>
+                Create a webpage for a complete analytics dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 254 -->
+
+        <div class="program">
+            <a href="css-254.html">
+                <span class="number">254</span>
+                Create a webpage for an AI-powered SaaS dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 255 -->
+
+        <div class="program">
+            <a href="css-255.html">
+                <span class="number">255</span>
+                Create a webpage for an AI agent management dashboard.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 256 -->
+
+        <div class="program">
+            <a href="css-256.html">
+                <span class="number">256</span>
+                Create a webpage for a SaaS user management system.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 257 -->
+
+        <div class="program">
+            <a href="css-257.html">
+                <span class="number">257</span>
+                Create a webpage for a SaaS team management system.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 258 -->
+
+        <div class="program">
+            <a href="css-258.html">
+                <span class="number">258</span>
+                Create a webpage for a SaaS account settings page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 259 -->
+
+        <div class="program">
+            <a href="css-259.html">
+                <span class="number">259</span>
+                Create a webpage for a SaaS security settings page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 260 -->
+
+        <div class="program">
+            <a href="css-260.html">
+                <span class="number">260</span>
+                Create a webpage for a SaaS integrations page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 261 -->
+
+        <div class="program">
+            <a href="css-261.html">
+                <span class="number">261</span>
+                Create a webpage for a SaaS billing management page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 262 -->
+
+        <div class="program">
+            <a href="css-262.html">
+                <span class="number">262</span>
+                Create a webpage for a SaaS pricing page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 263 -->
+
+        <div class="program">
+            <a href="css-263.html">
+                <span class="number">263</span>
+                Create a webpage for a SaaS checkout page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 264 -->
+
+        <div class="program">
+            <a href="css-264.html">
+                <span class="number">264</span>
+                Create a webpage for a SaaS invoice management page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 265 -->
+
+        <div class="program">
+            <a href="css-265.html">
+                <span class="number">265</span>
+                Create a webpage for a SaaS help center.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 266 -->
+
+        <div class="program">
+            <a href="css-266.html">
+                <span class="number">266</span>
+                Create a webpage for a SaaS documentation website.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 267 -->
+
+        <div class="program">
+            <a href="css-267.html">
+                <span class="number">267</span>
+                Create a webpage for a SaaS blog and news website.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 268 -->
+
+        <div class="program">
+            <a href="css-268.html">
+                <span class="number">268</span>
+                Create a webpage for a SaaS 404 error page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 269 -->
+
+        <div class="program">
+            <a href="css-269.html">
+                <span class="number">269</span>
+                Create a webpage for a SaaS 500 error page.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+        <!-- 270 -->
+
+        <div class="program">
+            <a href="css-270.html">
+                <span class="number">270</span>
+                Create a webpage for a complete responsive SaaS website using HTML5, CSS3, Flexbox, Grid, media queries, analytics, AI/ML interfaces, dashboards, and modern SaaS components.
+                <span class="open-program">OPEN_PROGRAM</span>
+            </a>
+        </div>
+
+
+    </main>
+
+
+    <footer class="footer">
+
+        DevCore.
+        &nbsp; | &nbsp;
+        CSS Practical Laboratory
+
+    </footer>
+
+
+</body>
+
+</html>

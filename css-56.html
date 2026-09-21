@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS 56 | DevCore</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0b;color:#f5f5f5;font-family:Arial}
+nav{height:70px;background:#111;border-bottom:1px solid #2a2a2a;display:flex;align-items:center;padding:0 8%}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff6422}
+main{max-width:1000px;margin:70px auto;padding:20px}
+.tag{color:#ff6422;border:1px solid #55301f;padding:7px 12px;border-radius:20px;font-size:12px}
+h1{font-size:48px}.desc{color:#999}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:#151515;border:1px solid #2a2a2a;border-radius:18px;padding:30px}
+.quote{font-size:40px;color:#ff6422}
+.text{color:#bbb;font-size:17px}
+.person{display:flex;align-items:center;gap:12px;margin-top:25px}
+.avatar{width:45px;height:45px;background:#ff6422;border-radius:50%;display:flex;align-items:center;justify-content:center}
+small{color:#888}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Dev<span>Core.</span></div></nav>
+<main>
+<span class="tag">CSS PRACTICAL 56</span>
+<h1>Testimonials</h1>
+<p class="desc">Customer testimonial cards.</p>
+
+<div class="grid">
+<div class="card">
+<div class="quote">“</div>
+<p class="text">DevCore made our analytics workflow much easier to manage.</p>
+<div class="person"><div class="avatar">A</div><div><strong>Alex Morgan</strong><br><small>Product Manager</small></div></div>
+</div>
+
+<div class="card">
+<div class="quote">“</div>
+<p class="text">The interface is clean, fast and easy for our team to use.</p>
+<div class="person"><div class="avatar">R</div><div><strong>Riya Shah</strong><br><small>Founder</small></div></div>
+</div>
+</div>
+</main>
+</body>
+</html>

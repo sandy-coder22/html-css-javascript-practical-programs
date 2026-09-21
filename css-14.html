@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visibility and Opacity | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            height: 70px;
+            background: #111111;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        nav a {
+            color: #999999;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff6422;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin: 15px 0;
+        }
+
+        .description {
+            color: #999999;
+            font-size: 18px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #151515;
+            border: 1px solid #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            min-height: 200px;
+        }
+
+        .card h2 {
+            color: #ff6422;
+        }
+
+        .demo {
+            background: #0b0b0b;
+            border: 2px solid #ff6422;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .visible {
+            visibility: visible;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .opacity-full {
+            opacity: 1;
+        }
+
+        .opacity-half {
+            opacity: 0.5;
+        }
+
+        .opacity-low {
+            opacity: 0.2;
+        }
+
+        .note {
+            color: #999999;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Dev<span>Core.</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="tag">&gt; CSS PRACTICAL 14</div>
+
+    <h1>Visibility & Opacity</h1>
+
+    <p class="description">
+        CSS visibility and opacity properties.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h2>Visibility: Visible</h2>
+
+            <p class="note">
+                The element is visible on the page.
+            </p>
+
+            <div class="demo visible">
+                Visible Element
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Visibility: Hidden</h2>
+
+            <p class="note">
+                The element is hidden but still occupies space.
+            </p>
+
+            <div class="demo hidden">
+                Hidden Element
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Opacity: 1</h2>
+
+            <div class="demo opacity-full">
+                100% Visible
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Opacity: 0.5</h2>
+
+            <div class="demo opacity-half">
+                50% Visible
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Opacity: 0.2</h2>
+
+            <div class="demo opacity-low">
+                20% Visible
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

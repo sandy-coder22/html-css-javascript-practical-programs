@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Borders | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            height: 70px;
+            background: #111111;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        nav a {
+            color: #999999;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff6422;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        .description {
+            color: #999999;
+        }
+
+        .boxes {
+            margin-top: 40px;
+        }
+
+        .box {
+            background: #151515;
+            padding: 25px;
+            margin: 15px 0;
+        }
+
+        .solid {
+            border: 3px solid #ff6422;
+        }
+
+        .dashed {
+            border: 3px dashed #ff6422;
+        }
+
+        .dotted {
+            border: 3px dotted #ff6422;
+        }
+
+        .double {
+            border: 5px double #ff6422;
+        }
+
+        .rounded {
+            border: 3px solid #ff6422;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Dev<span>Core.</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="tag">&gt; CSS PRACTICAL 06</div>
+
+    <h1>CSS Borders</h1>
+
+    <p class="description">
+        Border styles, widths, colors and border-radius.
+    </p>
+
+    <div class="boxes">
+
+        <div class="box solid">Solid Border</div>
+
+        <div class="box dashed">Dashed Border</div>
+
+        <div class="box dotted">Dotted Border</div>
+
+        <div class="box double">Double Border</div>
+
+        <div class="box rounded">Rounded Border</div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

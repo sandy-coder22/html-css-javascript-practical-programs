@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Experiment 11</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: white;
+            padding: 40px;
+        }
+
+        .box {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #171717;
+            border-left: 4px solid #ff6422;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #ff6422;
+        }
+
+        h2 {
+            color: #ff6422;
+            margin-top: 25px;
+        }
+
+        p {
+            color: #cccccc;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .internal {
+            color: #ff6422;
+        }
+
+        .external {
+            color: #ffffff;
+            background-color: #222222;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>CSS Styling Methods</h1>
+
+        <h2>Inline CSS</h2>
+
+        <p style="color: #ff6422;">
+            This paragraph uses Inline CSS.
+        </p>
+
+        <h2>Internal CSS</h2>
+
+        <p class="internal">
+            This paragraph uses Internal CSS.
+        </p>
+
+        <h2>External CSS</h2>
+
+        <p class="external">
+            This paragraph uses External CSS.
+        </p>
+
+    </div>
+
+</body>
+
+</html>

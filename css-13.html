@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Properties | DevCore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            height: 70px;
+            background: #111111;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6422;
+        }
+
+        nav a {
+            color: #999999;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff6422;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .tag {
+            color: #ff6422;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        .description {
+            color: #999999;
+        }
+
+        .section {
+            margin-top: 40px;
+            background: #151515;
+            border: 1px solid #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            color: #ff6422;
+        }
+
+        .item {
+            background: #0b0b0b;
+            border: 1px solid #2a2a2a;
+            padding: 15px;
+            margin: 8px;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 150px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .none {
+            display: none;
+        }
+
+        .note {
+            color: #999999;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Dev<span>Core.</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="tag">&gt; CSS PRACTICAL 13</div>
+
+    <h1>CSS Display Properties</h1>
+
+    <p class="description">
+        Block, inline, inline-block, flex, grid and none.
+    </p>
+
+    <div class="section">
+
+        <h2>Block</h2>
+
+        <div class="item block">Block Element</div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Inline</h2>
+
+        <span class="item inline">Inline 1</span>
+        <span class="item inline">Inline 2</span>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Inline-Block</h2>
+
+        <div class="item inline-block">Box 1</div>
+        <div class="item inline-block">Box 2</div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Flex</h2>
+
+        <div class="flex">
+
+            <div class="item">Flex 1</div>
+            <div class="item">Flex 2</div>
+            <div class="item">Flex 3</div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Grid</h2>
+
+        <div class="grid">
+
+            <div class="item">Grid 1</div>
+            <div class="item">Grid 2</div>
+            <div class="item">Grid 3</div>
+            <div class="item">Grid 4</div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>None</h2>
+
+        <p class="note">
+            The next element has display: none.
+        </p>
+
+        <div class="item none">
+            You cannot see this element.
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
